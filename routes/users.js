@@ -56,7 +56,7 @@ userRouter.post('/signup', cors.corsWithOptions, function(req, res, next){
   });
 });
 
-userRouter.post('/login', cors.corsWithOptions, passport.authenticate('local'), (req, res) => {
+userRouter.post('/login', cors.cors, passport.authenticate('local'), (req, res) => {
       console.log("login request");
       var token = authenticate.getToken({ _id: req.user._id });
       res.statusCode = 200;
